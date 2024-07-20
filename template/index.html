@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VISIONA - PREDICCIÓN</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f4f7;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .main {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .content-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .form-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px #0000001a;
+            max-width: 500px;
+            width: 100%;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px #0000001a;
+        }
+        .form-title {
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+        .form-group label {
+            font-weight: bold;
+            color: #343a40;
+        }
+        .form-group input {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="content-container">
+
+            
+                <img src="{{ url_for('static', filename='images/visionalogo.png') }}" alt="Imagen de predicción">
+            
+
+            <div class="form-container">
+                <h2 class="form-title text-center">PLATAFORMA DE PREDICCIÓN DE PELIGROSIDAD</h2>
+                <form action="/prediction" method="POST" id="prediction-form">
+                 
+                    
+                    <div class="form-group">
+                        <label for="id_municipio">ID Municipio:</label>
+                        <input type="text" class="form-control" name="id_municipio" id="id_municipio" placeholder="ID del municipio" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="habitantes">Habitantes:</label>
+                        <input type="text" class="form-control" name="habitantes" id="habitantes" placeholder="Número de habitantes" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="accidentes">Accidentes:</label>
+                        <input type="text" class="form-control" name="accidentes" id="accidentes" placeholder="Número de accidentes" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="vic_masculina">Víctimas Sexo Masculino:</label>
+                        <input type="text" class="form-control" name="vic_masculina" id="vic_masculina" placeholder="Número de víctimas sexo masculino" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="vic_femenino">Víctimas Sexo Femenino:</label>
+                        <input type="text" class="form-control" name="vic_femenino" id="vic_femenino" placeholder="Número de víctimas sexo femenino" required/>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary btn-block">Obtener Resultado</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
